@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Біздің айналамыздағы ақпарат — 5-сынып</title>
+<style>
+:root{
+  --bg:#f4f8ff; --card:#fff; --text:#17324d; --muted:#60758a;
+  --primary:#356ae6; --primary2:#6f8ff5; --accent:#22b8a7; --yellow:#ffd166;
+  --danger:#ef6a6a; --shadow:0 12px 30px rgba(35,70,120,.10);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#eef5ff,#f8fbff);color:var(--text)}
+header{background:linear-gradient(135deg,#4777ed,#72a0ff);color:white;padding:28px 22px 22px;position:sticky;top:0;z-index:5;box-shadow:0 5px 18px #356ae633}
+.wrap{max-width:1180px;margin:auto}
+.top{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.logo{font-size:26px;font-weight:800}.subtitle{opacity:.9;margin-top:5px}
+.badge{background:#ffffff25;border:1px solid #ffffff50;padding:10px 14px;border-radius:18px}
+nav{display:flex;gap:8px;overflow:auto;margin-top:20px}
+nav button{border:0;background:#ffffff22;color:#fff;padding:11px 16px;border-radius:14px;cursor:pointer;font-weight:700;white-space:nowrap}
+nav button.active,nav button:hover{background:#fff;color:#356ae6}
+main{padding:28px 18px 60px}.page{display:none}.page.active{display:block}
+.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:20px}
+.card{background:var(--card);border-radius:22px;padding:24px;box-shadow:var(--shadow);margin-bottom:20px}
+.hero .card:first-child{background:linear-gradient(135deg,#fff,#edf4ff)}
+h1{font-size:36px;margin:5px 0 12px}h2{margin-top:0}h3{margin-bottom:8px}
+p{line-height:1.6;color:var(--muted)}
+.btn{border:0;border-radius:14px;padding:12px 18px;background:var(--primary);color:white;font-weight:800;cursor:pointer}
+.btn.secondary{background:#eaf0ff;color:var(--primary)}.btn.green{background:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.topic{cursor:pointer;transition:.2s}.topic:hover{transform:translateY(-4px)}
+.icon{font-size:42px}.pill{display:inline-block;padding:6px 10px;background:#edf2ff;color:#356ae6;border-radius:20px;font-size:12px;font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{padding:18px;border-radius:18px;background:#f6f9ff;text-align:center}.stat b{display:block;font-size:28px;color:var(--primary)}
+.progress{height:12px;background:#e7edf6;border-radius:10px;overflow:hidden}.progress>div{height:100%;background:linear-gradient(90deg,#356ae6,#22b8a7);width:0;transition:.4s}
+.question{font-size:19px;font-weight:700;margin-bottom:14px}.answers{display:grid;gap:10px}.answer{padding:14px;border:2px solid #e6ecf5;border-radius:14px;background:#fff;cursor:pointer;text-align:left;font-size:16px}.answer:hover{border-color:#8ca8f5}.answer.correct{background:#e8fbf5;border-color:#22b8a7}.answer.wrong{background:#fff0f0;border-color:#ef6a6a}
+.feedback{font-weight:700;margin:14px 0;min-height:24px}
+.flash{font-size:22px;text-align:center;padding:20px;background:#f8fbff;border-radius:18px}
+.term{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:15px;border:1px solid #e6edf7;border-radius:15px;margin-bottom:10px}
+input,textarea{width:100%;padding:13px;border:2px solid #e4eaf4;border-radius:13px;font-size:16px}
+footer{text-align:center;color:#718398;padding:25px}
+@media(max-width:800px){.hero,.grid,.stats{grid-template-columns:1fr}h1{font-size:29px}.top{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+  <div class="top">
+    <div><div class="logo">💡 Ақпарат әлемі</div><div class="subtitle">5-сыныпқа арналған интерактивті информатика сайты</div></div>
+    <div class="badge">⭐ Ұпай: <b id="points">0</b></div>
+  </div>
+  <nav id="nav">
+    <button class="active" onclick="showPage('home',this)">🏠 Басты бет</button>
+    <button onclick="showPage('theory',this)">📚 Теория</button>
+    <button onclick="showPage('practice',this)">🧩 Практика</button>
+    <button onclick="showPage('quiz',this)">🎯 Тест</button>
+    <button onclick="showPage('game',this)">🎮 Ойын</button>
+    <button onclick="showPage('progress',this)">📈 Жетістік</button>
+  </nav>
+</div>
+</header>
+
+<main class="wrap">
+<section id="home" class="page active">
+  <div class="hero">
+    <div class="card">
+      <span class="pill">5-СЫНЫП • ИНФОРМАТИКА</span>
+      <h1>Біздің айналамыздағы ақпарат</h1>
+      <p>Ақпаратты тану, қабылдау, сақтау, өңдеу және жеткізу ұғымдарын қызықты ойындар мен практикалық тапсырмалар арқылы меңгер.</p>
+      <button class="btn" onclick="showPage('theory')">🚀 Сабақты бастау</button>
+      <button class="btn secondary" onclick="showPage('quiz')">🎯 Тестке өту</button>
+    </div>
+    <div class="card">
+      <h2>🧠 Бүгін не үйренемін?</h2>
+      <p>• Ақпарат деген не?</p><p>• Ақпараттың түрлері</p><p>• Ақпаратты қабылдау жолдары</p><p>• Ақпаратпен жұмыс кезеңдері</p>
+    </div>
+  </div>
+  <div class="card">
+    <h2>📌 Оқу маршруты</h2>
+    <div class="grid">
+      <div class="card topic" onclick="showPage('theory')"><div class="icon">📖</div><h3>1. Теория</h3><p>Негізгі ұғымдарды оқы.</p></div>
+      <div class="card topic" onclick="showPage('practice')"><div class="icon">🧩</div><h3>2. Практика</h3><p>Тапсырмаларды орында.</p></div>
+      <div class="card topic" onclick="showPage('quiz')"><div class="icon">🏆</div><h3>3. Бақылау</h3><p>Біліміңді тестпен тексер.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="theory" class="page">
+  <div class="card">
+    <span class="pill">ТЕОРИЯ</span><h1>Ақпарат дегеніміз не?</h1>
+    <p><b>Ақпарат</b> — қоршаған ортадағы нысандар, құбылыстар, адамдар туралы біз қабылдайтын мәлімет.</p>
+    <div class="grid">
+      <div class="card"><div class="icon">👀</div><h3>Көру</h3><p>Мәтін, сурет, белгі, бейне арқылы ақпарат аламыз.</p></div>
+      <div class="card"><div class="icon">👂</div><h3>Есту</h3><p>Дыбыс, музыка, сөйлеу арқылы ақпарат қабылдаймыз.</p></div>
+      <div class="card"><div class="icon">✋</div><h3>Сезу</h3><p>Тері арқылы ыстық, суық, жұмсақ, қатты екенін сеземіз.</p></div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>🔄 Ақпаратпен орындалатын әрекеттер</h2>
+    <div class="grid">
+      <div><h3>📥 Қабылдау</h3><p>Ақпаратты сезім мүшелері немесе құрылғылар арқылы алу.</p></div>
+      <div><h3>💾 Сақтау</h3><p>Ақпаратты есте, дәптерде, компьютерде сақтау.</p></div>
+      <div><h3>⚙️ Өңдеу</h3><p>Ақпаратты өзгерту, салыстыру, есептеу, реттеу.</p></div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>💬 Есте сақта!</h2>
+    <div class="flash">Ақпарат → қабылдау → сақтау → өңдеу → жеткізу</div>
+  </div>
+</section>
+
+<section id="practice" class="page">
+  <div class="card">
+    <span class="pill">ПРАКТИКАЛЫҚ ТАПСЫРМА</span>
+    <h1>«Ақпаратты тап!»</h1>
+    <p>Күнделікті өмірдегі әрекеттерді ақпаратпен жұмыс түрлерімен сәйкестендір.</p>
+    <div id="practiceList"></div>
+  </div>
+  <div class="card">
+    <h2>✍️ Өз мысалыңды жаз</h2>
+    <textarea id="example" rows="4" placeholder="Мысалы: Телефоннан ауа райын қарадым — ақпаратты қабылдадым."></textarea>
+    <br><br><button class="btn green" onclick="saveExample()">Сақтау</button>
+    <p id="saveMsg"></p>
+  </div>
+</section>
+
+<section id="quiz" class="page">
+  <div class="card">
+    <span class="pill">БІЛІМДІ ТЕКСЕР</span>
+    <h1>🎯 Интерактивті тест</h1>
+    <div class="progress"><div id="quizProgress"></div></div>
+    <p id="qCounter"></p>
+    <div class="question" id="question"></div>
+    <div class="answers" id="answers"></div>
+    <div class="feedback" id="feedback"></div>
+    <button class="btn" id="nextBtn" onclick="nextQuestion()" style="display:none">Келесі сұрақ →</button>
+  </div>
+</section>
+
+<section id="game" class="page">
+  <div class="card">
+    <span class="pill">ОЙЫН</span><h1>🎮 «Ақпарат детективі»</h1>
+    <p>Суреттегі/жағдайдағы ақпараттың қандай түрі екенін тап. Дұрыс жауапқа +10 ұпай!</p>
+    <div class="flash" id="gameCase">👂 Мұғалімнің дауысын тыңдап отырсың.</div><br>
+    <div class="grid">
+      <button class="btn secondary" onclick="gameAnswer('көру')">👀 Көру</button>
+      <button class="btn secondary" onclick="gameAnswer('есту')">👂 Есту</button>
+      <button class="btn secondary" onclick="gameAnswer('сезу')">✋ Сезу</button>
+    </div>
+    <p id="gameFeedback"></p>
+  </div>
+</section>
+
+<section id="progress" class="page">
+  <div class="card"><span class="pill">ЖЕКЕ ЖЕТІСТІК</span><h1>📈 Менің нәтижем</h1>
+    <div class="stats">
+      <div class="stat"><b id="statPoints">0</b>Ұпай</div>
+      <div class="stat"><b id="statQuiz">0</b>Дұрыс тест</div>
+      <div class="stat"><b id="statPractice">0</b>Практика</div>
+    </div>
+  </div>
+  <div class="card"><h2>🏅 Марапат</h2><p id="award">Алғашқы ұпайыңды жина!</p></div>
+</section>
+</main>
+<footer>© 2026 «Ақпарат әлемі» • 5-сынып информатикасы • Интерактивті оқу прототипі</footer>
+
+<script>
+let points=Number(localStorage.getItem('points')||0), quizCorrect=Number(localStorage.getItem('quizCorrect')||0), practiceDone=Number(localStorage.getItem('practiceDone')||0);
+const quiz=[
+ {q:"Ақпарат дегеніміз не?",a:["Қоршаған орта туралы мәлімет","Тек компьютер ойыны","Тек сан","Тек сурет"],c:0},
+ {q:"Мұғалімнің сөзін тыңдау арқылы ақпаратты қай сезім мүшесімен қабылдаймыз?",a:["Көз","Құлақ","Тері","Мұрын"],c:1},
+ {q:"Файлды компьютерге жазып қою — ақпаратпен қандай әрекет?",a:["Сақтау","Жою","Көру","Сезу"],c:0},
+ {q:"Сурет, мәтін және бейне көбіне қандай ақпаратты қабылдауға мүмкіндік береді?",a:["Көру ақпаратын","Дәм ақпаратын","Иіс ақпаратын","Тек дыбысты"],c:0},
+ {q:"Ақпаратты өзгерту, салыстыру, есептеу — бұл...",a:["Өңдеу","Қабылдау","Жеткізу","Ұйықтау"],c:0}
+];
+let qi=0, answered=false;
+function update(){
+ document.getElementById('points').textContent=points;
+ document.getElementById('statPoints').textContent=points;
+ document.getElementById('statQuiz').textContent=quizCorrect;
+ document.getElementById('statPractice').textContent=practiceDone;
+ let award=points>=80?"🏆 Ақпарат сарапшысы!":points>=40?"🥇 Білімді зерттеуші!":points>=20?"🥈 Ақылды ізденуші!":"🌱 Алғашқы қадамың сәтті!";
+ document.getElementById('award').textContent=award;
+ localStorage.setItem('points',points);localStorage.setItem('quizCorrect',quizCorrect);localStorage.setItem('practiceDone',practiceDone);
+}
+function showPage(id,btn){
+ document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
+ if(btn)btn.classList.add('active');
+ if(id==='quiz')loadQuestion(); if(id==='practice')loadPractice(); update();
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function loadQuestion(){
+ answered=false;let x=quiz[qi];
+ document.getElementById('qCounter').textContent=`${qi+1} / ${quiz.length}`;
+ document.getElementById('quizProgress').style.width=(qi/quiz.length*100)+'%';
+ document.getElementById('question').textContent=x.q;
+ document.getElementById('feedback').textContent='';
+ document.getElementById('nextBtn').style.display='none';
+ document.getElementById('answers').innerHTML=x.a.map((t,i)=>`<button class="answer" onclick="answer(${i})">${String.fromCharCode(65+i)}) ${t}</button>`).join('');
+}
+function answer(i){
+ if(answered)return;answered=true;let x=quiz[qi], btns=document.querySelectorAll('.answer');
+ btns.forEach((b,j)=>{if(j===x.c)b.classList.add('correct');if(j===i&&i!==x.c)b.classList.add('wrong')});
+ if(i===x.c){points+=10;quizCorrect++;document.getElementById('feedback').textContent='✅ Дұрыс! +10 ұпай';}
+ else document.getElementById('feedback').textContent='❌ Дұрыс жауап: '+x.a[x.c];
+ document.getElementById('nextBtn').style.display='inline-block';update();
+}
+function nextQuestion(){qi++;if(qi>=quiz.length){qi=0;document.getElementById('question').textContent='🎉 Тест аяқталды!';document.getElementById('answers').innerHTML='<div class="flash">Жарайсың! Нәтижеңді «Жетістік» бөлімінен көр.</div>';document.getElementById('nextBtn').style.display='none';document.getElementById('quizProgress').style.width='100%';return}loadQuestion();}
+const practice=[
+ ["📱","Телефоннан ауа райы туралы мәлімет оқу","Қабылдау"],
+ ["💾","Құжатты компьютерге жазып қою","Сақтау"],
+ ["🧮","Есептің жауабын калькулятормен есептеу","Өңдеу"],
+ ["📣","Досыңа жаңалықты айтып беру","Жеткізу"]
+];
+function loadPractice(){
+ document.getElementById('practiceList').innerHTML=practice.map((p,i)=>`<div class="term"><span>${p[0]} <b>${p[1]}</b></span><select id="pr${i}" onchange="checkPractice(${i},this.value)"><option value="">Таңда...</option><option>Қабылдау</option><option>Сақтау</option><option>Өңдеу</option><option>Жеткізу</option></select></div>`).join('');
+}
+function checkPractice(i,v){if(v===practice[i][2]){let el=document.getElementById('pr'+i);if(!el.dataset.done){el.dataset.done=1;points+=5;practiceDone++;update();alert('Дұрыс! +5 ұпай');}}}
+function saveExample(){let v=document.getElementById('example').value.trim();if(v){points+=5;practiceDone++;update();document.getElementById('saveMsg').textContent='✅ Мысалың сақталды! +5 ұпай';}else document.getElementById('saveMsg').textContent='Алдымен мысал жаз.';}
+const cases=[['👂 Мұғалімнің дауысын тыңдап отырсың.','есту'],['👀 Кітаптағы суретке қарап отырсың.','көру'],['✋ Қардың суық екенін сездің.','сезу'],['👀 Экрандағы мәтінді оқып отырсың.','көру']];
+let gi=0;
+function gameAnswer(v){let f=document.getElementById('gameFeedback');if(v===cases[gi][1]){points+=10;f.textContent='🎉 Дұрыс! +10 ұпай';gi=(gi+1)%cases.length;document.getElementById('gameCase').textContent=cases[gi][0];}else f.textContent='🤔 Тағы ойланып көр!';update();}
+update();loadQuestion();
+</script>
+</body>
+</html>
